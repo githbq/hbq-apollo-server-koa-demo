@@ -1,18 +1,18 @@
-> 项目描述
+> typescript + koa2 + graphql boilerplate
 
-![my love](./logo.png) 
-
-## 功能介绍
-1. 简介1 
-2. 简介2   
+## grapqh boilerplate with koa2
+1. graphql route
+2. graphql playground
 
 ## 安装
+
 ```
-yarn
+yarn 
 ```
 
 ## 测试   
+
 ```
-npm run test    
+npm run start  
 ```
  
