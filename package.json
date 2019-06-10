@@ -11,10 +11,11 @@
         "tsc": "npm run clear && tsc",
         "tsc:w": "npm run clear && tsc -w",
         "p": "npm run tsc && npm publish",
-        "lint": "tslint \"src/**/*.ts\""
+        "lint": "tslint \"src/**/*.ts\" --fix"
     },
     "dependencies": {
         "apollo-server-koa": "^2.5.0",
+        "graphql": "^14.3.1",
         "koa": "^2.7.0",
         "tslib": "^1.9.3"
     },
