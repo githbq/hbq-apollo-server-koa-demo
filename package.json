@@ -5,7 +5,7 @@
     "main": "build/index.js",
     "scripts": {
         "start:build": "npm run tsc && node build",
-        "start": "node run",
+        "start": "nodemon --config ./nodemon.json",
         "test": "mocha src/**/*.test.ts",
         "clear": "rimraf build",
         "tsc": "npm run clear && tsc",
