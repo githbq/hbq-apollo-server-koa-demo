@@ -1,6 +1,7 @@
 import {
   GraphQLString,
-  GraphQLNonNull
+  GraphQLNonNull,
+  typeFromAST
 } from 'graphql'
 import User from '../types/User'
 

@@ -8,6 +8,7 @@ import {
   GraphQLSchemaConfig,
   GraphQLObjectType
 } from 'graphql'
+
 import queries from '../graphql/queries'
 import mutations from '../graphql/mutations'
 
@@ -17,7 +18,7 @@ export const router = new Router()
 
 
 router.post('/', async ctx => {
-  debugger
+
   let { variables, query } = ctx.request.body
 
   const schemaConfig = {
@@ -34,6 +35,8 @@ router.post('/', async ctx => {
   }
 
   const schema = new GraphQLSchema(schemaConfig)
+
+
   console.log('schema created')
   // const schemaValidationErrors = validateSchema(schema)
 
@@ -64,6 +67,5 @@ router.post('/', async ctx => {
 })
 
 router.get('/', ctx => {
-  debugger
   ctx.response.body = name
 })
