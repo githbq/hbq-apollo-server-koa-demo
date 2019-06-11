@@ -2,7 +2,7 @@ import {
   GraphQLString,
   GraphQLNonNull
 } from 'graphql'
-import User from '../types/User'
+import User from '../types/GraphqlUser'
 
 
 const userQuery = {
@@ -16,7 +16,7 @@ const userQuery = {
     }
   },
   resolve(source, args): any {
-    return { name: '张三-' + args.id, age: 20 }
+    return { id: args.id, name: '张三-' + args.id, age: 20 }
   },
   zpfeExtra: {
     fieldResolves: {
@@ -27,7 +27,8 @@ const userQuery = {
   }
 }
 
-const UserType = User(userQuery.zpfeExtra.fieldResolves)
+const UserType = User(null)
+debugger
 userQuery.type = UserType
 
 export default userQuery

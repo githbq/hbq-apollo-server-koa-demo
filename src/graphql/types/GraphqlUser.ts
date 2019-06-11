@@ -1,13 +1,21 @@
 
-import { parse, GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
+import { parse, buildSchema, typeFromAST, GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
-export default parse(`
 
-# 用户信息
+const graphqlString = `  
+"用户信息"
 type User {
+  "id信息"
   id: String!
   name: String!
-  introduction: String
+  introduction: String 
 }
+ 
 `
-).definitions[0]
+const typeASTUser = parse(graphqlString)
+
+const schema = buildSchema(graphqlString)
+
+const User = schema.getType((typeASTUser.definitions[0] as any).name.value)
+
+export default (options: any) => User

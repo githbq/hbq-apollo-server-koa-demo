@@ -5,8 +5,10 @@ import {
   validate,
   validateSchema,
   GraphQLSchema,
-  GraphQLSchemaConfig,
-  GraphQLObjectType
+  GraphQLObjectType,
+  buildSchema,
+  typeFromAST,
+  GraphQLNamedType
 } from 'graphql'
 
 import queries from '../graphql/queries'
@@ -27,11 +29,11 @@ router.post('/', async ctx => {
       description: '根查询',
       fields: queries,
     }),
-    mutation: new GraphQLObjectType({
-      name: 'rootMutation',
-      description: '根变更',
-      fields: mutations,
-    }),
+    // mutation: new GraphQLObjectType({
+    //   name: 'rootMutation',
+    //   description: '根变更',
+    //   fields: mutations,
+    // }),
   }
 
   const schema = new GraphQLSchema(schemaConfig)
@@ -65,6 +67,7 @@ router.post('/', async ctx => {
   ctx.response.body = result
 
 })
+
 
 router.get('/', ctx => {
   ctx.response.redirect('/playground')

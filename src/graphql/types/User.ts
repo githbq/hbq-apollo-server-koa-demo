@@ -9,6 +9,7 @@ import Course from './Course'
 let UserType = null
 
 export default (fieldResolves = {}) => {
+
   if (UserType) { return UserType }
   return UserType = new GraphQLObjectType({
     name: 'User',
