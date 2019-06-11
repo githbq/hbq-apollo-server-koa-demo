@@ -6,8 +6,9 @@ import {
 } from 'graphql'
 import User from '../types/User'
 
+const UserType = User()
 export default {
-  type: User,
+  type: UserType,
   name: 'user mutaion',
   description: '更新用户名',
   args: {
@@ -17,7 +18,6 @@ export default {
     }
   },
   resolve(source, args) {
-
     return { name: args.name, age: 20 }
   }
 }

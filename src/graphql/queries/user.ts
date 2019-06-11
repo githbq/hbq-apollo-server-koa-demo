@@ -1,12 +1,12 @@
 import {
   GraphQLString,
-  GraphQLNonNull,
-  typeFromAST
+  GraphQLNonNull
 } from 'graphql'
 import User from '../types/User'
 
-export default {
-  type: User,
+
+const userQuery = {
+  type: null,
   name: 'user query',
   description: '查询用户信息',
   args: {
@@ -15,7 +15,19 @@ export default {
       type: new GraphQLNonNull(GraphQLString)
     }
   },
-  resolve(): any {
-    return { name: '张三', age: 20 }
+  resolve(source, args): any {
+    return { name: '张三-' + args.id, age: 20 }
   },
+  zpfeExtra: {
+    fieldResolves: {
+      courses(source) {
+        return [{ name: source.name + '-' + '数学' }, { name: '语文' }]
+      }
+    }
+  }
 }
+
+const UserType = User(userQuery.zpfeExtra.fieldResolves)
+userQuery.type = UserType
+
+export default userQuery
