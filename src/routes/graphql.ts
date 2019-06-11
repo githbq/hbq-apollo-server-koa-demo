@@ -67,5 +67,5 @@ router.post('/', async ctx => {
 })
 
 router.get('/', ctx => {
-  ctx.response.body = name
+  ctx.response.redirect('/playground')
 })
